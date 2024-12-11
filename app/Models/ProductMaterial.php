@@ -12,6 +12,23 @@ class ProductMaterial extends Model
     protected $fillable = [
         'product_id',
         'material_id',
-        'quantity'
+        'warehouse_id',
+        'quantity',
+        'price',
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function material()
+    {
+        return $this->belongsTo(Material::class);
+    }
+
+    public function warehouse()
+    {
+        return $this->belongsTo(Warehouse::class);
+    }
 }
